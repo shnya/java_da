@@ -345,7 +345,7 @@ public class DoubleArray {
         if(state > 0){
             return false;
         }
-        System.out.println("current:" + (char)itr.current());
+        //System.out.println("current:" + (char)itr.current());
         _insert(itr, -state, id);
         return true;
     }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="java_da" default="jar">
+  <property file="build.properties"/>
+    <target name="init">
+      <property name="build.jar" value="./target/java-da.jar"/>
+      <property name="build.src" value="./src"/>
+      <property name="build.dest" value="./target"/>
+      <property name="libdir" value="./lib"/>
+
+      <path id="compile.class.path">
+      </path>
+    </target>
+
+    <target name="clean" depends="init">
+      <delete file="${build.jar}" />
+      <delete dir="${build.dest}" />
+    </target>
+
+    <target name="compile" depends="init">
+      <mkdir dir="${build.dest}" />
+      <javac destdir="${build.dest}"
+             srcdir="${build.src}"
+             includeantruntime="false"
+              >
+        <classpath refid="compile.class.path"/>
+        <include name="**/*.java" />
+      </javac>
+    </target>
+
+    <target name="jar" depends="compile" >
+      <jar destfile="${build.jar}">
+        <fileset dir="${build.dest}" />
+        <manifest>
+          <attribute name="Main-Class" value="Test" />
+        </manifest>
+      </jar>
+    </target>
+  </project>
