@@ -442,6 +442,6 @@ public class DoubleArray {
         entryNum(0);
         emptyHead(1);
         this.array_.add(new Node(0, -2));
-        expand(256);
+        expand(8192);
     }
 }
